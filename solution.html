@@ -7,7 +7,7 @@
   <title>Roth's Responsive Movies websites</title>
   <link rel="stylesheet" href="style.css"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />  
- <link rel="debug-bar" href="debug-bar.js"/>
+ <link rel="debug-bar" href="./debug-bar2.js"/>
  <link rel="stylesheet"
  href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -17,6 +17,372 @@
 </style>
 <body>
 
+  <style>@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+
+    *{
+      
+      font-family: 'Poppins', sans-serif;                             
+      box-sizing: border-box;
+      list-style: none;
+      text-decoration: none;
+      scroll-padding-top: 2rem;
+      scroll-behavior: smooth;
+    }
+    
+    :root {
+      --main-color: #ff2c1f;
+      --text-color: #020307;
+      --bg-color: #fff;}
+    
+      body
+    
+      {margin-bottom: 50px ;
+       background:var(--text-color);
+      color: var(--bg-color);
+    }
+    
+      section
+      { padding: 4.5rem 0 1.5rem;}
+    
+      header
+    {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 100px;
+      transition: 0.5s;
+     
+    
+    }
+    
+    .logo {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color:#fff;
+      display: flex;
+      align-items: center;
+      column-gap: 0.5rem;
+      
+    }
+    
+    .logo .bx 
+    {
+      font-size: 24px;
+      color: var(--main-color);
+    }
+    
+    .navbar
+    {
+      display: flex;
+     column-gap: 5rem;
+     
+    }
+    
+    .navbar li {
+     position: relative;
+    }
+    
+    .navbar a
+    {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--bg-color);
+      
+    }
+    
+    .navbar a::after
+    {
+      content: "";
+      width: 0;
+      height: 2px;
+      background: var(--main-color);
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      transition: 0.4s all linear;
+    }
+    
+    .navbar a:hover::after, .navbar .home-active::after {
+    width: 100%;
+     }
+    
+     #menu-icon {
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 1000001;
+      display: none;
+    }
+    
+    .btn 
+    {
+      padding: 0.7rem 1.4rem;
+      background: var(--main-color);
+      color: var(--bg-color);
+      font-weight: 400;
+      border-radius: 0.5rem;
+      
+    }
+    
+    .btn:hover
+    {
+     background: #fa1216;
+    }
+    
+    .conatiner
+    {width: 100%;
+      min-height: 640px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      background: rgb(2,3,7,0.4);
+    
+     }
+    
+     .conatiner img
+    {width: 100%;
+      position: absolute;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: -1;}
+    
+    
+      .swiper-pagination-bullet
+    {
+    Width: 6px !important;
+    Height: 6px !important;
+    Border-radius: 0.2rem !important;
+    Background: var(--bg-color) !important;
+    Opacity: 1 !important;}
+    
+    
+    .swiper-pagination-bullet-active
+    {
+    Width: 1.5rem !important;
+    Background: var(--main-color) !important;}
+    
+    
+    .home-text 
+    {z-index: 100;
+    Padding: 0 150px;
+    } 
+    
+    .home-text span
+    
+    {color: var(--bg-color);
+    Font-weight: 500;
+    Text-transform: uppercase;
+    
+    } 
+    
+    .home-text h1
+    {color: var(--bg-color);
+    Font-size: 4rem;
+    Font-weight: 700;
+    Margin-bottom: 1rem;}
+    
+    .play{position: absolute;
+    Right: 4rem;
+    Bottom: 10%;}
+    
+    .play .bx {
+    Background: var(--bg-color);
+    Padding: 10px;
+    font-size: 2rem;
+    Border-radius: 50%;
+    Border: 4px solid rgb(2,3,7,0.4);
+    color: var(--main-color);
+    }
+    
+    
+    .play .bx:hover
+    {
+    Background: var(--main-color);
+    Color:var(--bg-color);
+    Transition: 0.2s all linear;}
+    
+    
+    .heading
+    {
+    Max-width: 968px;
+    Margin-left: auto;
+    Margin-right: auto;
+    Font-size: 1.2rem;
+    Font-weight: 500;
+    Text-transform: uppercase; 
+    Border-bottom: 1px solid var(--main-color);}
+    
+    
+    .movies-container
+    {
+    Max-width: 900px;
+    Margin-right: auto;
+    Margin-left: auto;
+    Display: grid;
+    Grid-template-columns: repeat(auto-fit, minmax(180px, auto));
+    Gap: 1rem;
+    Margin-top: 2rem;
+    }
+    
+    .box .box-img 
+    {
+    Width: 100%;
+    Height: 270px;
+    }
+    
+    .box .box-img img 
+    {
+    Width: 100%;
+    Height: 100%;
+    Object-fit: cover;}
+    
+    .box .box-img img:hover
+    {
+    transform: translateY(-10px);
+    transition: 0.2s all linear;}
+    
+    .box h3 
+    {
+     font-size: 0.9rem;
+     font-weight: 500;
+      }
+    
+    .box-span
+    {
+      font-size: 13px;
+      }
+    
+    
+      .Newsletter
+      {
+        max-width: 968px;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-self: center;
+        row-gap: 2rem;
+        }
+    
+        .Newsletter h2
+        {
+          text-align: center;
+          font-size: 1.2rem;
+          font-weight: 600;
+          }
+    
+          .Newsletter form
+          {
+           background: var(--bg-color);
+           padding: 10px;
+           border-radius: 0.5rem;
+           display: flex;
+           align-items: center;
+            }
+    
+            .Newsletter form 
+            {
+              background: var(--bg-color);
+              padding: 10px;
+              border-radius: 0.5rem;
+              display: flex;
+              align-items: center;
+               }
+    
+    
+          .Newsletter form input 
+          {
+            border: none;
+            outline: none;
+            }
+    
+      .Newsletter form .email  {
+       width: 280px;
+    
+        }
+      
+        
+      .Newsletter form input::placeholder
+      {
+    color: var(--text-color);
+    font-size: 0.8rem;
+    font-weight: 400;
+     
+         }
+    
+      .Newsletter .btn  {
+       text-transform: uppercase;
+       font-weight: 500;
+       cursor: pointer;
+        }
+    
+        .footer {
+          max-width: 968px;
+          margin-left: auto;
+          margin-right: auto;
+           display: flex;
+           justify-content: space-between;
+               }
+    
+        .social 
+        {
+          display: flex;
+          align-items: center;
+          column-gap: 0.5rem ;
+               }
+    .social .bx
+    
+    {
+      background-color: var(--bg-color);
+      padding: 2px;
+      font-size: 2rem;
+      border-radius: 50%;
+      border: 4px soli rgb(2,3,7,0.4);
+      color: var(--main-color);
+           }
+    
+      .social .bx:hover  {
+       background: var(--main-color) ;
+       color: var(--bg-color);
+       transition: 0.2s all linear;
+             }
+     .copyright 
+     {
+     padding: 20px;
+     text-align: center;
+     color: var(--bg-color);
+            }
+    
+    
+     
+    
+           .new
+            {
+            Max-width: 900px;
+            Margin-right: auto;
+            Margin-left: auto;
+            Display: grid;
+            Grid-template-columns: repeat(auto-fit, minmax(180px, auto));
+            Gap: 1rem;
+            Margin-top: 2rem;
+            }
+            
+           
+            
+            .new .neww img
+            { display: block;
+            Width: 100%;
+            Height: 100%;
+            Object-fit: cover;}
+            
+    </style>
 
   <header>
   <a href="#" class="logo">
@@ -89,7 +455,7 @@
 
 
 
-<script src="debug-bar.js">
+<script src="debug-bar2.js">
 
 </script>
   
@@ -230,7 +596,7 @@
 </section>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="debug-bar.js"></script>
+<script src="debug-bar2.js"></script>
 
 <section class="Newsletter"  id="Newsletter">
   <h2>Subscribe To Get <br> Newsletter</h2>
@@ -259,7 +625,34 @@
   <p>&#169; CarpoolVenom All Right Reservered</p></div>
 
 
-      
+      <script>
+        var swiper = new Swiper(".mySwiper", {
+	slidesPerView: 1,
+	spaceBetween: 10,
+	pagination: {
+	  el: ".swiper-pagination",
+	  clickable: true,
+	},
+	breakpoints: {
+	  "@0.00": {
+		slidesPerView: 1,
+		spaceBetween: 10,
+	  },
+	  "@0.75": {
+		slidesPerView: 2,
+		spaceBetween: 20,
+	  },
+	  "@1.00": {
+		slidesPerView: 3,
+		spaceBetween: 40,
+	  },
+	  "@1.50": {
+		slidesPerView: 4,
+		spaceBetween: 50,
+	  },
+	},
+  });
+      </script>
   
 </body>
 
